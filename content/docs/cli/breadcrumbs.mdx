@@ -1,0 +1,117 @@
+---
+title: Breadcrumbs
+description: Learn how to use the breadcrumbs navigation feature in your application
+---
+
+# Breadcrumbs
+
+Learn how to use the breadcrumbs navigation feature in your application.
+
+## Basic Usage
+
+```jsx
+import { Breadcrumbs } from '@your-package-name'
+
+function App() {
+  const items = [
+    { label: 'Home', path: '/' },
+    { label: 'Docs', path: '/docs' },
+    { label: 'Features', path: '/docs/features' }
+  ]
+
+  return <Breadcrumbs items={items} />
+}
+```
+
+## Features
+
+- Responsive design
+- Custom styling
+- Navigation history
+- Dynamic updates
+- Accessibility support
+
+## Configuration Options
+
+```js
+const config = {
+  separator: '/',
+  maxItems: 5,
+  showIcons: true,
+  theme: 'light',
+  style: {
+    fontSize: '14px',
+    color: '#666',
+    hoverColor: '#000'
+  }
+}
+```
+
+## Usage Examples
+
+1. **Basic Navigation**
+   ```jsx
+   <Breadcrumbs
+     items={[
+       { label: 'Home', path: '/' },
+       { label: 'Products', path: '/products' }
+     ]}
+   />
+   ```
+
+2. **With Icons**
+   ```jsx
+   <Breadcrumbs
+     items={[
+       { label: 'Home', icon: 'home', path: '/' },
+       { label: 'Settings', icon: 'settings', path: '/settings' }
+     ]}
+     showIcons={true}
+   />
+   ```
+
+## Advanced Features
+
+### Custom Separators
+
+```jsx
+<Breadcrumbs
+  items={items}
+  separator={<span className="custom-separator">›</span>}
+/>
+```
+
+### Dynamic Breadcrumbs
+
+```jsx
+function DynamicBreadcrumbs({ path }) {
+  const items = path.split('/').map((segment, index) => ({
+    label: segment,
+    path: '/' + path.split('/').slice(0, index + 1).join('/')
+  }))
+
+  return <Breadcrumbs items={items} />
+}
+```
+
+### Styling Options
+
+```js
+const customStyles = {
+  container: {
+    padding: '10px',
+    backgroundColor: '#f5f5f5'
+  },
+  item: {
+    color: '#333',
+    textDecoration: 'none',
+    '&:hover': {
+      color: '#007AFF'
+    }
+  },
+  separator: {
+    margin: '0 8px',
+    color: '#999'
+  }
+}
+``` 

@@ -1,0 +1,131 @@
+---
+title: ASCII Art
+description: Learn how to use the ASCII art feature in your application
+---
+
+# ASCII Art
+
+Learn how to use the ASCII art feature in your application.
+
+## Basic Usage
+
+```jsx
+import { AsciiArt } from '@your-package-name'
+
+function App() {
+  return (
+    <AsciiArt
+      text="Hello, World!"
+      style="block"
+      size="medium"
+    />
+  )
+}
+```
+
+## Features
+
+- Multiple ASCII styles
+- Customizable size
+- Color support
+- Animation
+- Custom fonts
+
+## Configuration Options
+
+```js
+const config = {
+  style: 'block',
+  size: 'medium',
+  color: '#000000',
+  backgroundColor: '#ffffff',
+  font: 'standard',
+  animation: {
+    enabled: true,
+    speed: 'normal',
+    type: 'wave'
+  }
+}
+```
+
+## Usage Examples
+
+1. **Basic ASCII Art**
+   ```jsx
+   <AsciiArt
+     text="Hello"
+     style="standard"
+   />
+   ```
+
+2. **Colored ASCII Art**
+   ```jsx
+   <AsciiArt
+     text="Hello"
+     style="block"
+     color="#FF0000"
+   />
+   ```
+
+3. **Animated ASCII Art**
+   ```jsx
+   <AsciiArt
+     text="Hello"
+     style="block"
+     animation={{
+       enabled: true,
+       type: 'wave'
+     }}
+   />
+   ```
+
+## Advanced Features
+
+### Custom ASCII Styles
+
+```js
+const customStyle = {
+  name: 'custom',
+  characters: {
+    'A': ['  *  ', ' * * ', '*****', '*   *', '*   *'],
+    'B': ['**** ', '*   *', '**** ', '*   *', '**** ']
+    // ... more characters
+  }
+}
+```
+
+### ASCII Animation
+
+```jsx
+<AsciiArt
+  text="Hello"
+  animation={{
+    enabled: true,
+    type: 'wave',
+    speed: 'fast',
+    options: {
+      amplitude: 2,
+      frequency: 0.5
+    }
+  }}
+/>
+```
+
+### Custom Fonts
+
+```js
+const customFont = {
+  name: 'custom-font',
+  height: 5,
+  characters: {
+    'A': [
+      '  *  ',
+      ' * * ',
+      '*****',
+      '*   *',
+      '*   *'
+    ]
+    // ... more characters
+  }
+}
+``` 

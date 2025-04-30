@@ -1,0 +1,180 @@
+---
+title: Configuration Examples
+description: Learn how to configure your application with practical examples
+---
+
+# Configuration Examples
+
+Learn how to configure your application with practical examples.
+
+## Basic Configuration
+
+```jsx
+import { ConfigProvider } from '@your-package-name'
+
+function App() {
+  const config = {
+    theme: 'light',
+    language: 'en',
+    features: {
+      codeHighlight: true,
+      lineNumbers: true
+    }
+  }
+
+  return (
+    <ConfigProvider config={config}>
+      <YourApp />
+    </ConfigProvider>
+  )
+}
+```
+
+## Features
+
+- Theme configuration
+- Language settings
+- Feature toggles
+- Custom plugins
+- Environment variables
+
+## Configuration Options
+
+```js
+const config = {
+  theme: {
+    mode: 'light',
+    primaryColor: '#007AFF',
+    secondaryColor: '#5856D6'
+  },
+  language: {
+    default: 'en',
+    fallback: 'en',
+    supported: ['en', 'zh', 'ja']
+  },
+  features: {
+    codeHighlight: true,
+    lineNumbers: true,
+    minimap: true,
+    wordWrap: true
+  },
+  plugins: [
+    {
+      name: 'custom-plugin',
+      options: {
+        enabled: true,
+        settings: {}
+      }
+    }
+  ]
+}
+```
+
+## Usage Examples
+
+1. **Basic Theme Configuration**
+   ```jsx
+   <ConfigProvider
+     config={{
+       theme: {
+         mode: 'dark',
+         primaryColor: '#007AFF'
+       }
+     }}
+   >
+     <YourApp />
+   </ConfigProvider>
+   ```
+
+2. **Language Configuration**
+   ```jsx
+   <ConfigProvider
+     config={{
+       language: {
+         default: 'zh',
+         supported: ['en', 'zh']
+       }
+     }}
+   >
+     <YourApp />
+   </ConfigProvider>
+   ```
+
+3. **Feature Configuration**
+   ```jsx
+   <ConfigProvider
+     config={{
+       features: {
+         codeHighlight: true,
+         lineNumbers: true
+       }
+     }}
+   >
+     <YourApp />
+   </ConfigProvider>
+   ```
+
+## Advanced Features
+
+### Custom Plugin Configuration
+
+```js
+const pluginConfig = {
+  name: 'custom-plugin',
+  version: '1.0.0',
+  options: {
+    enabled: true,
+    settings: {
+      key1: 'value1',
+      key2: 'value2'
+    }
+  },
+  hooks: {
+    beforeInit: () => {
+      // Custom initialization logic
+    },
+    afterInit: () => {
+      // Custom cleanup logic
+    }
+  }
+}
+```
+
+### Environment Configuration
+
+```js
+const envConfig = {
+  development: {
+    apiUrl: 'http://localhost:3000',
+    debug: true
+  },
+  production: {
+    apiUrl: 'https://api.example.com',
+    debug: false
+  }
+}
+```
+
+### Dynamic Configuration
+
+```jsx
+function DynamicConfig({ environment }) {
+  const [config, setConfig] = useState(defaultConfig)
+
+  useEffect(() => {
+    // Load configuration based on environment
+    const loadConfig = async () => {
+      const response = await fetch(`/api/config/${environment}`)
+      const data = await response.json()
+      setConfig(data)
+    }
+    loadConfig()
+  }, [environment])
+
+  return (
+    <ConfigProvider config={config}>
+      <YourApp />
+    </ConfigProvider>
+  )
+}
+``` 

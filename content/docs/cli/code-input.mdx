@@ -1,0 +1,82 @@
+---
+title: Code Input
+description: Learn how to use the code input feature in your application
+---
+
+# Code Input
+
+Learn how to use the code input feature in your application.
+
+## Basic Usage
+
+```jsx
+import { CodeInput } from '@your-package-name'
+
+function App() {
+  return (
+    <CodeInput
+      language="javascript"
+      value={code}
+      onChange={setCode}
+    />
+  )
+}
+```
+
+## Features
+
+- Syntax highlighting
+- Auto-completion
+- Error detection
+- Line numbers
+- Code folding
+
+## Configuration Options
+
+```js
+const config = {
+  language: 'javascript',
+  theme: 'vs-dark',
+  fontSize: 14,
+  tabSize: 2,
+  minimap: {
+    enabled: true
+  }
+}
+```
+
+## Supported Languages
+
+- JavaScript/TypeScript
+- Python
+- Java
+- C/C++
+- HTML/CSS
+- And many more...
+
+## Advanced Features
+
+### Custom Language Support
+
+```js
+import { registerLanguage } from '@your-package-name'
+
+registerLanguage('custom', {
+  keywords: ['if', 'else', 'for'],
+  operators: ['+', '-', '*', '/'],
+  // ... more configuration
+})
+```
+
+### Custom Themes
+
+```js
+const customTheme = {
+  name: 'my-theme',
+  colors: {
+    background: '#1E1E1E',
+    foreground: '#D4D4D4',
+    // ... more colors
+  }
+}
+``` 

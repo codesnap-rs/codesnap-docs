@@ -1,0 +1,110 @@
+---
+title: Pipe
+description: Learn how to use the pipe feature to transform and process data in your application
+---
+
+# Pipe
+
+Learn how to use the pipe feature to transform and process data in your application.
+
+## Basic Usage
+
+```jsx
+import { Pipe } from '@your-package-name'
+
+function App() {
+  return (
+    <Pipe
+      input={data}
+      transform={transformFunction}
+      output={transformedData}
+    />
+  )
+}
+```
+
+## Features
+
+- Data transformation
+- Multiple pipe stages
+- Error handling
+- Type safety
+- Async operations
+
+## Configuration Options
+
+```js
+const config = {
+  stages: [
+    {
+      name: 'parse',
+      handler: JSON.parse
+    },
+    {
+      name: 'transform',
+      handler: (data) => data.map(item => ({
+        ...item,
+        processed: true
+      }))
+    },
+    {
+      name: 'stringify',
+      handler: JSON.stringify
+    }
+  ]
+}
+```
+
+## Pipe Types
+
+1. **Synchronous Pipe**
+   ```js
+   const syncPipe = new Pipe({
+     stages: [
+       (data) => data.toUpperCase(),
+       (data) => data.split('')
+     ]
+   })
+   ```
+
+2. **Asynchronous Pipe**
+   ```js
+   const asyncPipe = new Pipe({
+     stages: [
+       async (data) => await fetch(data),
+       async (data) => await data.json()
+     ]
+   })
+   ```
+
+## Advanced Features
+
+### Custom Pipe Stages
+
+```js
+import { registerPipeStage } from '@your-package-name'
+
+registerPipeStage('custom', {
+  validate: (input) => {
+    // Input validation logic
+    return isValid
+  },
+  transform: (input) => {
+    // Transformation logic
+    return transformed
+  }
+})
+```
+
+### Error Handling
+
+```js
+const pipe = new Pipe({
+  stages: [
+    // ... stages
+  ],
+  onError: (error, stage) => {
+    console.error(`Error in stage ${stage}:`, error)
+    // Custom error handling
+  }
+}) 

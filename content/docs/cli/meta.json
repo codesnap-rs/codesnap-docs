@@ -1,0 +1,29 @@
+{
+  "title": "CLI",
+  "description": "Docs for CodeSnap CLI tool",
+  "icon": "SquareTerminal",
+  "root": true,
+  "pages": [
+    "---Introduction---",
+    "index",
+    "architecture",
+    "---Configuration---",
+    "overview",
+    "theme",
+    "fonts",
+    "background",
+    "---Features---",
+    "code-input",
+    "code-output",
+    "command-output",
+    "pipe",
+    "highlight",
+    "breadcrumbs",
+    "line-numbers",
+    "range",
+    "ascii",
+    "---Examples---",
+    "configuration",
+    "code-example"
+  ]
+}

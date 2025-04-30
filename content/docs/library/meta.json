@@ -1,0 +1,10 @@
+{
+  "title": "Library",
+  "description": "Docs for CodeSnap Rust library",
+  "icon": "Building2",
+  "root": true,
+  "pages": [
+    "---Introduction---",
+    "index"
+  ]
+}

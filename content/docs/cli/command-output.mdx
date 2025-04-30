@@ -1,0 +1,95 @@
+---
+title: Command Output
+description: Learn how to use the command output feature in your application
+---
+
+# Command Output
+
+Learn how to use the command output feature in your application.
+
+## Basic Usage
+
+```jsx
+import { CommandOutput } from '@your-package-name'
+
+function App() {
+  return (
+    <CommandOutput
+      command="npm install"
+      output={output}
+      status="success"
+    />
+  )
+}
+```
+
+## Features
+
+- Command execution status
+- Real-time output streaming
+- Error handling
+- Command history
+- Output formatting
+
+## Configuration Options
+
+```js
+const config = {
+  showCommand: true,
+  showTimestamp: true,
+  autoScroll: true,
+  maxHistory: 100,
+  theme: 'terminal'
+}
+```
+
+## Output Types
+
+1. **Success Output**
+   ```bash
+   $ npm install
+   added 1234 packages in 5.2s
+   ```
+
+2. **Error Output**
+   ```bash
+   $ npm install
+   npm ERR! code E404
+   npm ERR! 404 Not Found
+   ```
+
+3. **Progress Output**
+   ```bash
+   $ npm install
+   [==========] 100% | ETA: 0s | 1234/1234
+   ```
+
+## Advanced Features
+
+### Custom Command Handlers
+
+```js
+import { registerCommandHandler } from '@your-package-name'
+
+registerCommandHandler('custom', {
+  execute: async (command) => {
+    // Custom command execution logic
+    return result
+  }
+})
+```
+
+### Output Themes
+
+```js
+const terminalTheme = {
+  name: 'custom-terminal',
+  colors: {
+    background: '#1E1E1E',
+    text: '#FFFFFF',
+    success: '#4CAF50',
+    error: '#F44336',
+    command: '#2196F3'
+  }
+}
+``` 

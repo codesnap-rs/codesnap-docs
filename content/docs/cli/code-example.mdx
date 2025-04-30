@@ -1,0 +1,121 @@
+---
+title: Code Examples
+description: Learn how to use code examples in your application
+---
+
+# Code Examples
+
+Learn how to use code examples in your application.
+
+## Basic Usage
+
+```jsx
+import { CodeExample } from '@your-package-name'
+
+function App() {
+  return (
+    <CodeExample
+      code={exampleCode}
+      language="javascript"
+      title="Example Title"
+    />
+  )
+}
+```
+
+## Features
+
+- Multiple language support
+- Syntax highlighting
+- Copy to clipboard
+- Line numbers
+- Code folding
+
+## Configuration Options
+
+```js
+const config = {
+  language: 'javascript',
+  theme: 'vs-dark',
+  showLineNumbers: true,
+  showCopyButton: true,
+  showTitle: true,
+  fontSize: 14,
+  tabSize: 2
+}
+```
+
+## Usage Examples
+
+1. **Basic Example**
+   ```jsx
+   <CodeExample
+     code="console.log('Hello, World!')"
+     language="javascript"
+   />
+   ```
+
+2. **With Title**
+   ```jsx
+   <CodeExample
+     code="def hello(): print('Hello, World!')"
+     language="python"
+     title="Python Example"
+   />
+   ```
+
+3. **With Line Numbers**
+   ```jsx
+   <CodeExample
+     code="function hello() { return 'Hello, World!' }"
+     language="javascript"
+     showLineNumbers={true}
+   />
+   ```
+
+## Advanced Features
+
+### Custom Language Support
+
+```js
+import { registerLanguage } from '@your-package-name'
+
+registerLanguage('custom', {
+  name: 'Custom Language',
+  keywords: ['if', 'else', 'for'],
+  operators: ['+', '-', '*', '/'],
+  // ... more configuration
+})
+```
+
+### Custom Themes
+
+```js
+const customTheme = {
+  name: 'my-theme',
+  colors: {
+    background: '#1E1E1E',
+    foreground: '#D4D4D4',
+    keyword: '#569CD6',
+    string: '#CE9178',
+    comment: '#6A9955'
+  }
+}
+```
+
+### Code Folding
+
+```jsx
+<CodeExample
+  code={longCode}
+  language="javascript"
+  folding={{
+    enabled: true,
+    defaultFolded: true,
+    markers: {
+      start: '// #region',
+      end: '// #endregion'
+    }
+  }}
+/>
+``` 

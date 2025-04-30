@@ -1,0 +1,67 @@
+---
+title: Theme Configuration
+description: Learn how to customize the theme of your application
+---
+
+# Theme Configuration
+
+Learn how to customize the theme of your application.
+
+## Theme Options
+
+### Color Schemes
+
+```js
+const theme = {
+  light: {
+    primary: '#007AFF',
+    secondary: '#5856D6',
+    background: '#FFFFFF',
+    text: '#000000'
+  },
+  dark: {
+    primary: '#0A84FF',
+    secondary: '#5E5CE6',
+    background: '#000000',
+    text: '#FFFFFF'
+  }
+}
+```
+
+### Custom Themes
+
+You can create custom themes by extending the base theme:
+
+```js
+const customTheme = {
+  ...baseTheme,
+  colors: {
+    ...baseTheme.colors,
+    accent: '#FF2D55'
+  }
+}
+```
+
+## Theme Properties
+
+| Property | Type | Description |
+|----------|------|-------------|
+| mode | string | 'light' or 'dark' |
+| primaryColor | string | Main brand color |
+| secondaryColor | string | Secondary brand color |
+| backgroundColor | string | Background color |
+| textColor | string | Text color |
+
+## Usage Example
+
+```jsx
+import { ThemeProvider } from '@your-package-name'
+
+function App() {
+  return (
+    <ThemeProvider theme={customTheme}>
+      <YourApp />
+    </ThemeProvider>
+  )
+}
+``` 

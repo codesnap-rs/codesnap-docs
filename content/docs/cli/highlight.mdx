@@ -1,0 +1,102 @@
+---
+title: Code Highlighting
+description: Learn how to use the code highlighting feature in your application
+---
+
+# Code Highlighting
+
+Learn how to use the code highlighting feature in your application.
+
+## Basic Usage
+
+```jsx
+import { CodeHighlight } from '@your-package-name'
+
+function App() {
+  return (
+    <CodeHighlight
+      code={code}
+      language="javascript"
+      theme="vs-dark"
+    />
+  )
+}
+```
+
+## Features
+
+- Syntax highlighting
+- Multiple themes
+- Custom language support
+- Line highlighting
+- Word highlighting
+
+## Configuration Options
+
+```js
+const config = {
+  language: 'javascript',
+  theme: 'vs-dark',
+  highlightLines: [1, 2, 3],
+  highlightWords: ['function', 'const', 'let'],
+  showLineNumbers: true,
+  fontSize: 14
+}
+```
+
+## Supported Languages
+
+1. **JavaScript/TypeScript**
+   ```js
+   function hello() {
+     console.log('Hello, World!')
+   }
+   ```
+
+2. **Python**
+   ```python
+   def hello():
+       print("Hello, World!")
+   ```
+
+3. **HTML**
+   ```html
+   <div class="container">
+     <h1>Hello, World!</h1>
+   </div>
+   ```
+
+## Advanced Features
+
+### Custom Language Support
+
+```js
+import { registerLanguage } from '@your-package-name'
+
+registerLanguage('custom', {
+  name: 'Custom Language',
+  keywords: ['if', 'else', 'for'],
+  operators: ['+', '-', '*', '/'],
+  symbols: /[=><!~?:&|+\-*\/\^]+/,
+  tokenizer: {
+    root: [
+      // Custom tokenizer rules
+    ]
+  }
+})
+```
+
+### Custom Themes
+
+```js
+const customTheme = {
+  name: 'my-theme',
+  colors: {
+    background: '#1E1E1E',
+    foreground: '#D4D4D4',
+    keyword: '#569CD6',
+    string: '#CE9178',
+    comment: '#6A9955'
+  }
+}
+``` 

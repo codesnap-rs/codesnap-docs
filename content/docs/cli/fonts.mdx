@@ -1,0 +1,67 @@
+---
+title: Font Configuration
+description: Learn how to configure fonts in your application
+---
+
+# Font Configuration
+
+Learn how to configure fonts in your application.
+
+## Font Options
+
+### Font Family
+
+```js
+const fontConfig = {
+  family: {
+    primary: 'Inter',
+    secondary: 'Roboto Mono',
+    fallback: 'system-ui'
+  }
+}
+```
+
+### Font Sizes
+
+```js
+const fontSizeConfig = {
+  base: '16px',
+  scale: {
+    xs: '0.75rem',
+    sm: '0.875rem',
+    md: '1rem',
+    lg: '1.125rem',
+    xl: '1.25rem'
+  }
+}
+```
+
+## Font Properties
+
+| Property | Type | Description |
+|----------|------|-------------|
+| family | string | Font family name |
+| size | string | Font size |
+| weight | number | Font weight (100-900) |
+| lineHeight | number | Line height multiplier |
+
+## Usage Example
+
+```jsx
+import { FontProvider } from '@your-package-name'
+
+function App() {
+  return (
+    <FontProvider config={fontConfig}>
+      <YourApp />
+    </FontProvider>
+  )
+}
+```
+
+## Best Practices
+
+1. Use system fonts as fallbacks
+2. Consider loading performance
+3. Maintain consistent font scales
+4. Test across different devices 

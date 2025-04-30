@@ -1,0 +1,126 @@
+---
+title: Line Numbers
+description: Learn how to use the line numbers feature in your code editor
+---
+
+# Line Numbers
+
+Learn how to use the line numbers feature in your code editor.
+
+## Basic Usage
+
+```jsx
+import { CodeEditor } from '@your-package-name'
+
+function App() {
+  return (
+    <CodeEditor
+      code={code}
+      showLineNumbers={true}
+      startLineNumber={1}
+    />
+  )
+}
+```
+
+## Features
+
+- Customizable line numbers
+- Relative line numbers
+- Line number styling
+- Line number click handling
+- Line number ranges
+
+## Configuration Options
+
+```js
+const config = {
+  showLineNumbers: true,
+  startLineNumber: 1,
+  relativeLineNumbers: false,
+  style: {
+    color: '#666',
+    fontSize: '14px',
+    fontFamily: 'monospace',
+    padding: '0 10px'
+  }
+}
+```
+
+## Usage Examples
+
+1. **Basic Line Numbers**
+   ```jsx
+   <CodeEditor
+     code={code}
+     showLineNumbers={true}
+   />
+   ```
+
+2. **Relative Line Numbers**
+   ```jsx
+   <CodeEditor
+     code={code}
+     showLineNumbers={true}
+     relativeLineNumbers={true}
+   />
+   ```
+
+3. **Custom Start Number**
+   ```jsx
+   <CodeEditor
+     code={code}
+     showLineNumbers={true}
+     startLineNumber={100}
+   />
+   ```
+
+## Advanced Features
+
+### Line Number Click Handling
+
+```jsx
+<CodeEditor
+  code={code}
+  showLineNumbers={true}
+  onLineNumberClick={(lineNumber) => {
+    console.log(`Clicked line ${lineNumber}`)
+    // Custom handling logic
+  }}
+/>
+```
+
+### Custom Line Number Styling
+
+```js
+const lineNumberStyles = {
+  container: {
+    borderRight: '1px solid #ddd',
+    padding: '0 10px',
+    userSelect: 'none'
+  },
+  number: {
+    color: '#666',
+    fontSize: '14px',
+    fontFamily: 'monospace',
+    textAlign: 'right'
+  },
+  currentLine: {
+    color: '#007AFF',
+    fontWeight: 'bold'
+  }
+}
+```
+
+### Line Number Ranges
+
+```jsx
+<CodeEditor
+  code={code}
+  showLineNumbers={true}
+  lineNumberRanges={[
+    { start: 1, end: 5, style: { color: 'red' } },
+    { start: 10, end: 15, style: { color: 'blue' } }
+  ]}
+/>
+``` 

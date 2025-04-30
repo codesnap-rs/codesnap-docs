@@ -1,0 +1,150 @@
+---
+title: Range Selection
+description: Learn how to use the range selection feature in your code editor
+---
+
+# Range Selection
+
+Learn how to use the range selection feature in your code editor.
+
+## Basic Usage
+
+```jsx
+import { CodeEditor } from '@your-package-name'
+
+function App() {
+  return (
+    <CodeEditor
+      code={code}
+      range={{
+        start: { line: 1, column: 0 },
+        end: { line: 5, column: 0 }
+      }}
+    />
+  )
+}
+```
+
+## Features
+
+- Line range selection
+- Column range selection
+- Multiple range support
+- Range styling
+- Range events
+
+## Configuration Options
+
+```js
+const config = {
+  ranges: [
+    {
+      start: { line: 1, column: 0 },
+      end: { line: 5, column: 0 },
+      style: {
+        backgroundColor: '#ffeb3b',
+        borderColor: '#fbc02d'
+      }
+    }
+  ],
+  allowMultipleRanges: true,
+  rangeEvents: {
+    onSelect: (range) => console.log('Range selected:', range),
+    onDeselect: (range) => console.log('Range deselected:', range)
+  }
+}
+```
+
+## Usage Examples
+
+1. **Single Line Range**
+   ```jsx
+   <CodeEditor
+     code={code}
+     range={{
+       start: { line: 1, column: 0 },
+       end: { line: 1, column: 0 }
+     }}
+   />
+   ```
+
+2. **Multiple Ranges**
+   ```jsx
+   <CodeEditor
+     code={code}
+     ranges={[
+       {
+         start: { line: 1, column: 0 },
+         end: { line: 5, column: 0 }
+       },
+       {
+         start: { line: 10, column: 0 },
+         end: { line: 15, column: 0 }
+       }
+     ]}
+   />
+   ```
+
+## Advanced Features
+
+### Range Styling
+
+```js
+const rangeStyles = {
+  default: {
+    backgroundColor: 'rgba(255, 235, 59, 0.3)',
+    borderColor: '#fbc02d',
+    borderWidth: '1px',
+    borderStyle: 'solid'
+  },
+  error: {
+    backgroundColor: 'rgba(244, 67, 54, 0.3)',
+    borderColor: '#d32f2f'
+  },
+  warning: {
+    backgroundColor: 'rgba(255, 152, 0, 0.3)',
+    borderColor: '#f57c00'
+  }
+}
+```
+
+### Range Events
+
+```jsx
+<CodeEditor
+  code={code}
+  range={{
+    start: { line: 1, column: 0 },
+    end: { line: 5, column: 0 }
+  }}
+  onRangeSelect={(range) => {
+    console.log('Range selected:', range)
+    // Custom handling logic
+  }}
+  onRangeDeselect={(range) => {
+    console.log('Range deselected:', range)
+    // Custom handling logic
+  }}
+/>
+```
+
+### Dynamic Range Updates
+
+```jsx
+function DynamicRangeEditor({ code, ranges }) {
+  const [currentRanges, setCurrentRanges] = useState(ranges)
+
+  useEffect(() => {
+    // Update ranges based on code analysis
+    const newRanges = analyzeCode(code)
+    setCurrentRanges(newRanges)
+  }, [code])
+
+  return (
+    <CodeEditor
+      code={code}
+      ranges={currentRanges}
+    />
+  )
+}
+``` 

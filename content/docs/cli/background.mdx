@@ -1,0 +1,68 @@
+---
+title: Background Configuration
+description: Learn how to configure backgrounds in your application
+---
+
+# Background Configuration
+
+Learn how to configure backgrounds in your application.
+
+## Background Options
+
+### Basic Background
+
+```js
+const backgroundConfig = {
+  color: '#FFFFFF',
+  image: 'url(/path/to/image.jpg)',
+  pattern: 'none'
+}
+```
+
+### Gradient Backgrounds
+
+```js
+const gradientConfig = {
+  type: 'linear',
+  colors: ['#FF0000', '#00FF00'],
+  angle: '45deg'
+}
+```
+
+## Background Properties
+
+| Property | Type | Description |
+|----------|------|-------------|
+| color | string | Background color |
+| image | string | Background image URL |
+| pattern | string | Background pattern type |
+| opacity | number | Background opacity (0-1) |
+
+## Usage Example
+
+```jsx
+import { BackgroundProvider } from '@your-package-name'
+
+function App() {
+  return (
+    <BackgroundProvider config={backgroundConfig}>
+      <YourApp />
+    </BackgroundProvider>
+  )
+}
+```
+
+## Available Patterns
+
+1. Dots
+2. Lines
+3. Grid
+4. Waves
+5. Custom
+
+## Best Practices
+
+1. Ensure good contrast with content
+2. Consider performance impact
+3. Test on different screen sizes
+4. Maintain accessibility standards 
