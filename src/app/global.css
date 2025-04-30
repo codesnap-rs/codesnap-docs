@@ -1,3 +1,19 @@
 @import "tailwindcss";
 @import "fumadocs-ui/css/neutral.css";
 @import "fumadocs-ui/css/preset.css";
+
+:root {
+  /* --cli-color: hsl(250, 80%, 54%); */
+  /* --ui-color: hsl(220, 91%, 54%); */
+  --fd-layout-width: 1400px;
+}
+
+.cli {
+  /* --color-fd-primary: var(--cli-color); */
+}
+
+@theme {
+  /* --color-primary: var(--color-fd-primary); */
+  /* same for other colors */
+  /* --color-fd-primary: var(--ui-color); */
+}
