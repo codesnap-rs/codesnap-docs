@@ -9,9 +9,13 @@
     "postinstall": "fumadocs-mdx"
   },
   "dependencies": {
+    "@monaco-editor/react": "^4.7.0",
+    "@vscode/vscode-languagedetection": "^1.0.22",
+    "codesnap.wasm": "^0.11.7",
     "fumadocs-core": "15.2.12",
     "fumadocs-mdx": "11.6.1",
     "fumadocs-ui": "15.2.12",
+    "highlight.js": "^11.11.1",
     "lucide-react": "^0.503.0",
     "next": "15.3.1",
     "react": "^19.1.0",
