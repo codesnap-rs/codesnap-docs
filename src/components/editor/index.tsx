@@ -45,7 +45,7 @@ export const CodeEditor = () => {
   };
 
   return (
-    <div className="px-1 py-4 bg-[#FAFAFA] dark:bg-[#1E1E1E] rounded-lg shadow-md w-fit">
+    <div className="px-1 py-4 bg-[#FAFAFA] dark:bg-[#1E1E1E] rounded-lg shadow-md w-fit h-fit">
       <img id="image" />
       <div className="flex gap-2 mb-4 ml-4">
         <div className="rounded-full w-3 h-3 bg-[#FF5F57]" />
