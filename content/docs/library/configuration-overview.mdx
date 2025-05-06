@@ -1,0 +1,55 @@
+---
+title: Configuration Overview
+description: Overview of CodeSnap configuration
+---
+
+Create a code snapshot is essentially create a `Snapshot config` in CodeSnap, I'll guide you through the process of creating a `Snapshot config` step by step.
+
+## Step 1: Create a new Content
+
+Which is the content of the code snapshot, you can create a new `Content` by using the `Content::Code` method.
+
+```rust
+let code_content = Content::Code(
+    CodeBuilder::default()
+        .content(r#"pub fn main() {}"#)
+        .language("rust")
+        .build()?,
+);
+```
+
+## Step 2: Create Snapshot config
+
+```rust
+let snapshot = CodeSnap::from_default_theme()?
+    .content(code_content)
+    .build()?
+    .create_snapshot()?;
+```
+
+## Step 3: Consume the snapshot you just created
+
+There have two ways to consume the snapshot you just created, you can either copy it to the clipboard or save it to a file.
+
+### Copy to clipboard
+
+```rust
+snapshot.raw_data()?.copy()
+```
+
+### Save to file
+
+```rust
+// PNG
+snapshot.png_data()?.save("snapshot.png")?;
+
+// SVG
+snapshot.svg_data()?.save("snapshot.svg")?;
+
+// HTML
+snapshot.html_data()?.save("snapshot.html")?;
+```
+
+## More configurations
+
+CodeSnap provides a lot of configurations, you can check the [config.rs](https://github.com/codesnap-rs/codesnap/blob/main/core/src/config.rs) for more details.

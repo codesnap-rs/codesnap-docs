@@ -1,0 +1,27 @@
+---
+title: Overview
+description: Overview of CodeSnap
+---
+
+This document explains the architecture of CodeSnap.
+
+CodeSnap generates code snapshots directly from graphic engine, so it can used without network connection, it's different from other tools that use webview to render the code snapshot.
+Thanks for `tiny-skia` engine make this easier.
+
+## Syntax Highlighting
+
+CodeSnap uses `syntect` for syntax highlighting, which is a Rust port of the Sublime Text syntax highlighter. It provides support for a wide range of programming languages and themes.
+
+And CodeSnap also supports VSCode themes, there have a [theme-converter](https://github.com/codesnap-rs/theme-converter) to help you convert your VSCode theme to CodeSnap theme in runtime.
+
+## Output formats
+
+CodeSnap supports multiple output formats, including:
+
+- PNG
+- SVG
+- HTML
+
+## Themes
+
+CodeSnap is a customizable tool, so you can create your own theme by customize `Background` and code-theme file.

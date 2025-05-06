@@ -1,25 +1,67 @@
 ---
-title: Quick Start
-description: Get started with the framework quickly
+title: Getting started
+description: Get started with the CodeSnap quickly
 ---
 
-# Quick Start
+import { SquareTerminal } from "lucide-react";
 
-Welcome to the quick start guide. This guide will help you get started with the framework quickly.
+## Quick Start
+
+Welcome to the "Getting Started" guide for CodeSnap! 🎉 This page will help you get started with CodeSnap.
+
+CodeSnap is a powerful tool for creating beautiful code snippets. It allows you to customize the appearance of your code snippets, making them visually appealing and easy to read.
+This guide will walk you through the process of setting up CodeSnap in your project and using it effectively.
+
+CodeSnap also provides CLI and editor plugin support, allowing you to integrate it into your development workflow seamlessly.
+
+<Cards>
+  <Card icon={<SquareTerminal />} href="/docs/cli" title="CLI">
+    CodeSnap CLI is a command-line tool that allows you to generate code
+    snippets directly from your terminal.
+  </Card>
+  <Card icon={<SquareTerminal />} href="/docs/editor" title="CodeSnap.nvim">
+    Neovim plugin that allows you to generate code snippets directly from your
+    editor.
+  </Card>
+  <Card icon={<SquareTerminal />} href="/docs/editor" title="Zed integration">
+    Describe how to use CodeSnap with Zed.
+  </Card>
+  <Card disabled icon={<SquareTerminal />} title="VSCode plugin (coming soon)">
+    Visual Studio Code plugin that allows you to generate code snippets directly
+    from your editor.
+  </Card>
+  <Card disabled icon={<SquareTerminal />} title="IDEA plugin (coming soon)">
+    IntelliJ IDEA plugin that allows you to generate code snippets directly from
+    your editor.
+  </Card>
+</Cards>
 
 ## Installation
 
 ```bash
-npm install @your-package-name
+cargo add codesnap
 ```
 
 ## Basic Usage
 
-```jsx
-import { YourComponent } from '@your-package-name'
+```rust
+use codesnap::config::{CodeBuilder, CodeSnap, Content};
 
-export default function App() {
-  return <YourComponent />
+pub fn main() -> anyhow::Result<()> {
+    let code_content = Content::Code(
+        CodeBuilder::default()
+            .content(r#"pub fn main() {}"#)
+            .language("rust")
+            .build()?,
+    );
+
+    let snapshot = CodeSnap::from_default_theme()?
+        .content(code_content)
+        .build()?
+        .create_snapshot()?;
+
+    // Copy the snapshot data to the clipboard
+    snapshot.raw_data()?.copy()
 }
 ```
 
@@ -27,4 +69,4 @@ export default function App() {
 
 - Read the [Architecture](/docs/architecture) guide
 - Check out the [Configuration](/docs/overview) options
-- Explore the [Features](/docs/code-input) section 
+- Explore the [Features](/docs/code-input) section

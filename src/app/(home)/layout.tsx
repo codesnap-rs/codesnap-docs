@@ -9,7 +9,7 @@ export default function Layout({ children }: { children: ReactNode }) {
       links={[
         {
           text: "Documentation",
-          url: "/docs/cli",
+          url: "/docs/library",
           active: "nested-url",
         },
       ]}
