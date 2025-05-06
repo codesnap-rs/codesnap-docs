@@ -2,6 +2,7 @@ import { Logo } from "@/assets/icons/logo";
 import { CodeEditor } from "@/components/editor";
 import { GetStarted } from "@/components/get-started";
 import { Heading } from "@/components/heading";
+import { VersionChip } from "@/components/version-chip";
 import { Button } from "@heroui/react";
 import Link from "next/link";
 
@@ -12,6 +13,7 @@ export default function HomePage() {
       <main className="flex flex-1 text-center justify-center z-10">
         <div className="flex justify-between w-full max-w-fd-container">
           <div className="w-1/2 h-[calc(100vh-148px)] flex flex-col justify-center">
+            <VersionChip className="mb-4" />
             <Heading />
             <div className="flex text-start text-lg text-gray-500 mt-4">
               Code snapshot tool, provide CLI, Rust Library, Editor plugins and
