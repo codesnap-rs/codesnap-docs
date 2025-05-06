@@ -1,39 +1,29 @@
 import { Logo } from "@/assets/icons/logo";
 import { CodeEditor } from "@/components/editor";
 import { GetStarted } from "@/components/get-started";
+import { Heading } from "@/components/heading";
 import { Button } from "@heroui/react";
 import Link from "next/link";
 
 export default function HomePage() {
   return (
-    <main className="flex flex-1 text-center justify-center">
-      <div className="flex justify-between w-full max-w-fd-container mt-20">
-        <div className="w-1/2 flex flex-col justify-center">
-          <h1 className="flex mb-1.5 text-balance text-2xl font-semibold tracking-tight sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl [&>span]:dark:from-muted-foreground [&>span]:dark:to-foreground [&>span]:dark:bg-gradient-to-t [&>span]:dark:to-40% [&>span]:dark:bg-clip-text [&>span]:dark:text-transparent">
-            The
-            <div className="flex ml-3 mb-1.5 text-2xl font-semibold tracking-tight sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl [&>span]:dark:from-muted-foreground [&>span]:dark:to-foreground [&>span]:dark:bg-gradient-to-t [&>span]:dark:to-40% [&>span]:dark:bg-clip-text [&>span]:dark:text-transparent from-[#FF1CF7] to-[#b249f8] bg-clip-text text-transparent bg-gradient-to-b">
-              Most Beautiful,
+    <>
+      <div className="fixed top-0 left-0 inset-0 h-full w-full bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px] [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_60%,transparent_100%)] dark:bg-[radial-gradient(#242323_1px,transparent_1px)]"></div>
+      <main className="flex flex-1 text-center justify-center z-10">
+        <div className="flex justify-between w-full max-w-fd-container">
+          <div className="w-1/2 h-[calc(100vh-148px)] flex flex-col justify-center">
+            <Heading />
+            <div className="flex text-start text-lg text-gray-500 mt-4">
+              Code snapshot tool, provide CLI, Rust Library, Editor plugins and
+              WebAssembly library, make it easy to use in any environment.
             </div>
-          </h1>
-
-          <h2 className="flex mb-1.5 text-2xl font-semibold tracking-tight sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl [&>span]:dark:from-muted-foreground [&>span]:dark:to-foreground [&>span]:dark:bg-gradient-to-t [&>span]:dark:to-40% [&>span]:dark:bg-clip-text [&>span]:dark:text-transparent">
-            <span className="tracking-tight inline from-[#ff7675] to-[#fdcb6e] bg-clip-text text-transparent bg-gradient-to-b">
-              Faster,
-            </span>
-            <span className="ml-4 tracking-tight inline from-[#0984e3] to-[#74b9ff] bg-clip-text text-transparent bg-gradient-to-b">
-              Customizable,
-            </span>
-          </h2>
-          <h1 className="flex text-balance text-2xl font-semibold tracking-tight sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl [&>span]:dark:from-muted-foreground [&>span]:dark:to-foreground [&>span]:dark:bg-gradient-to-t [&>span]:dark:to-40% [&>span]:dark:bg-clip-text [&>span]:dark:text-transparent">
-            code snapshot tool in Pure Rust
-          </h1>
-
-          <GetStarted></GetStarted>
+            <GetStarted className="mt-8"></GetStarted>
+          </div>
+          <div className="flex flex-col justify-center">
+            <CodeEditor />
+          </div>
         </div>
-        <div className="flex flex-col justify-center">
-          <CodeEditor />
-        </div>
-      </div>
-    </main>
+      </main>
+    </>
   );
 }
