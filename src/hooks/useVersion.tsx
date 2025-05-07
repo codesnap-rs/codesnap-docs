@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 
 const token = process.env.NEXT_PUBLIC_GITHUB_TOKEN;
-const repo_url = "https://api.github.com/repos/codesnap-rs/codesnap-docs";
+const repo_url = "https://api.github.com/repos/codesnap-rs/codesnap/tags";
 
 export const useVersion = () => {
   const _version =
@@ -27,10 +27,12 @@ export const useVersion = () => {
         return response.json();
       })
       .then((data) => {
-        console.log(data, "data");
-        if (_version !== data.tag_name) {
-          localStorage.setItem("codesnap_version", data.tag_name);
-          setVersion(data.tag_name);
+        const [tagsData] = data;
+        const { name } = tagsData;
+        console.log(name, _version, "_version");
+        if (name !== _version) {
+          localStorage.setItem("codesnap_version", name);
+          setVersion(name);
         }
       })
       .catch((error) => {
