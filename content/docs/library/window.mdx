@@ -1,0 +1,52 @@
+---
+title: Window configuration
+description: Window configuration for CodeSnap
+---
+
+There are several options for configuring the window in CodeSnap. You can set the margin, title, border, and shadow of the window.
+
+```rust
+#[derive(Clone, Builder, Serialize, Deserialize, Debug, JsonSchema)]
+pub struct Window {
+    #[builder(setter(into), default = MarginBuilder::default().build().unwrap())]
+    pub margin: Margin,
+
+    #[builder(setter(into), default = TitleConfigBuilder::default().build().unwrap())]
+    pub title_config: TitleConfig,
+
+    #[builder(setter(into), default = BorderBuilder::default().build().unwrap())]
+    pub border: Border,
+
+    #[builder(default = true)]
+    pub mac_window_bar: bool,
+
+    #[builder(default = ShadowBuilder::default().build().unwrap())]
+    pub shadow: Shadow,
+}
+```
+
+Let's say you don't like mac window bar, and you want to set the margin to 10, and the title to "CodeSnap", and you want to set the border to 0.5 solid black, and you want to set the shadow radius to 25, then you can do it like this:
+
+```rust
+let window_config = WindowBuilder::default()
+    .mac_window_bar(false)
+    .margin(MarginBuilder::default().x(10.).y(10.).build()?)
+    .border(
+        BorderBuilder::default()
+            .width(0.5)
+            .color("#000000")
+            .build()?,
+    )
+    .shadow(ShadowBuilder::default().radius(10.).build()?)
+    .build()?;
+
+let snapshot = CodeSnap::from_default_theme()?
+    .window(window_config)
+    .content(code_content)
+    .build()?
+    .create_snapshot()?;
+```
+
+The output will be like this:
+
+![window](./window-config.jpg)

@@ -7,8 +7,19 @@
     "---Introduction---",
     "index",
     "overview",
-    "---Configuration---",
+    "---Features---",
     "configuration-overview",
-    "custom-theme"
+    "window",
+    "theme",
+    "font",
+    "line-number",
+    "breadcrumbs",
+    "scale",
+    "highlight",
+    "command-output",
+    "ascii-snapshot",
+    "---Advanced---",
+    "load-remote-theme",
+    "more-beautiful-theme"
   ]
 }

@@ -1,0 +1,60 @@
+---
+title: Font configuration
+description: Font configuration for CodeSnap
+---
+
+Generally, you can use the following fonts out of box:
+
+- **CaskaydiaCove Nerd Font**, which is perfect font for rendering code.
+- **Pacifico**, which is popular font for rendering watermark.
+
+## Custom font
+
+And by default, CodeSnap also loads system fonts, so you can use any font installed on your system.
+
+Otherwise, if you don't want to install any external fonts on your system, you can put the font somewhere, and let CodeSnap load it for you, just like custom theme does.
+
+Let's say we put the font in `path/to/font.ttf`, which name is `Foo Font`, and we want to use it for rendering code:
+
+```rust
+let snapshot = CodeSnap::from_default_theme()?
+    .fonts_folders(vec!["path/to".to_string()]) // [!code highlight]
+    .content(code_content)
+    .build()?
+    .create_snapshot()?;
+```
+
+Then use the font for rendering code:
+
+```rust
+let code_config = CodeConfigBuilder::default() // [!code highlight]
+    .font_family("Foo Font") // [!code highlight]
+    .build()?; // [!code highlight]
+
+let snapshot = CodeSnap::from_default_theme()?
+    .fonts_folders(vec!["path/to".to_string()])
+    .code_config(code_config) // [!code ++]
+    .content(code_content)
+    .build()?
+    .create_snapshot()?;
+```
+
+## Custom watermark font
+
+You can also use custom font for watermark, just like custom font for code.
+
+Similar to the custom code font, if CodeSnap loads the font once, it will be used for both code and watermark.
+
+```rust
+let watermark = WatermarkBuilder::default() // [!code highlight]
+    .font_family("Foo Font") // [!code highlight]
+    .build()?; // [!code highlight]
+
+let snapshot = CodeSnap::from_default_theme()?
+    .code_config(code_config)
+    .watermark(watermark) // [!code ++]
+    .fonts_folders(vec!["path/to".to_string()])
+    .content(code_content)
+    .build()?
+    .create_snapshot()?;
+```

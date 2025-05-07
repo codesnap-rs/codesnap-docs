@@ -1,0 +1,16 @@
+---
+title: Scale your snapshot
+description: You can scale your snapshot to any multiple
+---
+
+By default, CodeSnap will take a snapshot of your code at 3 multiples of the original size.
+
+You can change this by using the `scale_factor`:
+
+```rust
+let snapshot = CodeSnap::from_default_theme()?
+    .scale_factor(6) // [!code highlight]
+    .content(code_content)
+    .build()?
+    .create_snapshot()?;
+```
