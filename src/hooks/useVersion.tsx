@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 import { useStorage } from "./use-storage";
 
-const token = process.env.NEXT_PUBLIC_GITHUB_TOKEN;
 const repo_url = "https://api.github.com/repos/codesnap-rs/codesnap/tags";
 
 export const useVersion = () => {
@@ -14,7 +13,6 @@ export const useVersion = () => {
           method: "GET",
           headers: {
             Accept: "application/vnd.github+json",
-            Authorization: `Bearer ${token}`,
           },
         });
 
