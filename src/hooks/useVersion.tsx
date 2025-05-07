@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useStorage } from "./use-storage";
 
 const token = process.env.NEXT_PUBLIC_GITHUB_TOKEN;
@@ -9,30 +9,29 @@ export const useVersion = () => {
   const [version, setStoredValue] = useStorage("codesnap_version", "");
 
   useEffect(() => {
-    fetch(repo_url, {
-      method: "GET",
-      headers: {
-        Accept: "application/vnd.github+json",
-        Authorization: `Bearer ${token}`,
-      },
-    })
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-        return response.json();
-      })
-      .then((data) => {
+    const getTagData = async () => {
+      try {
+        const res = await fetch(repo_url, {
+          method: "GET",
+          headers: {
+            Accept: "application/vnd.github+json",
+            Authorization: `Bearer ${token}`,
+          },
+        });
+
+        const data = res.ok && (await res.json());
         const [tagsData] = data;
         const { name } = tagsData;
-        console.log(name, version, "_version");
+
         if (name !== version) {
           setStoredValue(name);
         }
-      })
-      .catch((error) => {
-        console.error("Error:", error);
-      });
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    getTagData();
   }, []);
 
   return { version };
