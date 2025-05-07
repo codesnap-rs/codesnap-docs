@@ -3,6 +3,13 @@ title: Scale your snapshot
 description: You can scale your snapshot to any multiple
 ---
 
+<Callout title="Warning" type="warn">
+  The `scale_factor` is a multiple of the original size, so if you set it to 6,
+  the snapshot will be 6 times larger than the original size. We recommend using
+  a scale factor of 3, as it maintains high quality while keeping the size
+  manageable.
+</Callout>
+
 By default, CodeSnap will take a snapshot of your code at 3 multiples of the original size.
 
 You can change this by using the `scale_factor`:
