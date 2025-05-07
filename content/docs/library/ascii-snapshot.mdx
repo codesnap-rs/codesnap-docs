@@ -2,3 +2,79 @@
 title: Create ASCII snapshots
 description: Create ASCII snapshots of your code
 ---
+
+Image snapshot is not the only way to create snapshots, you can also create ASCII snapshots.
+ASCII snapshots are a great way to create snapshots of your code in a text format, which can be easily shared and used in different environments.
+
+For basic usage, you just need to replace the `create_snapshot` method with `create_ascii_snapshot` method:
+
+```rust
+let code_content = Content::Code(
+    CodeBuilder::default()
+        .content(r#"pub fn main() {}"#)
+        .language("rust")
+        .build()?,
+);
+
+let snapshot = CodeSnap::from_default_theme()?
+    .content(code_content)
+    .build()?
+    .create_ascii_snapshot()?;
+```
+
+The output will be like this:
+
+```rust
+╭──────────────────╮
+│ pub fn main() {} │
+╰──────────────────╯
+```
+
+Breadcrumbs and line numbers also works with ASCII snapshots, you can enable them in the same way as you do with image snapshots.
+
+```rust
+let code_content = Content::Code(
+    CodeBuilder::default()
+        .content(
+            r#"pub fn main() {
+println!("Hello, world!");
+}"#,
+        )
+        .language("rust")
+        .start_line_number(10u32)
+        .file_path("core/examples/breadcrumbs.rs")
+        .build()?,
+);
+
+let breadcrumbs = BreadcrumbsBuilder::default()
+    .enable(true)
+    .separator(" > ")
+    .build()?;
+let code_config = CodeConfigBuilder::default()
+    .breadcrumbs(breadcrumbs)
+    .build()?;
+
+let snapshot = CodeSnap::from_default_theme()?
+    .code_config(code_config)
+    .content(code_content)
+    .build()?
+    .create_ascii_snapshot()?;
+```
+
+```rust
+╭────────────────────────────────────╮
+│ core/examples/breadcrumbs.rs       │
+│────────────────────────────────────│
+│ 10 pub fn main() {                 │
+│ 11     println!("Hello, world!");  │
+│ 12 }                               │
+╰────────────────────────────────────╯
+```
+
+## Why ASCII snapshots?
+
+Of course, you can just copy the code and share with your friends.
+
+Yes, if you want a beautiful snapshot, you can use image snapshots.
+
+But who don't want a snapshot with a beautiful ASCII art? It's for fun, hope you like it! ❤️

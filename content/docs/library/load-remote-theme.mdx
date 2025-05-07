@@ -2,3 +2,61 @@
 title: Load remote theme
 description: Load remote themes for CodeSnap
 ---
+
+CodeSnap always use local themes to render snapshots, this section will show you how to load remote themes for CodeSnap.
+
+Load local themes is easy, faster, and more reliable, but it not be the best choice for all cases, let's say you want to share your theme with your friends, your friends may not have the theme installed on their system, so they may not be able to use the same theme out of box.
+
+In other words, local stuff is not be easier to share.
+
+## Assets URL
+
+CodeSnap uses `name@url` to load remote themes, where `name` is the name of the theme, and `url` is the URL of the theme.
+
+- The name can be any string, but it should be unique, otherwise it will override the existing theme with the same name.
+- The URL should be a valid URL, and it should point to a `.tmTheme` file or a JSON file ends with `.json` (Which should be VSCode theme file).
+
+For instance, we have a assets URL:
+
+```
+vercel@https://raw.githubusercontent.com/Railly/one-hunter-vscode/refs/heads/main/themes/OneHunter-Vercel-color-theme.json
+```
+
+Then we can download the assets to somewhere:
+
+```rust
+let assets = Assets::from("vercel@https://raw.githubusercontent.com/Railly/one-hunter-vscode/refs/heads/main/themes/OneHunter-Vercel-color-theme.json");
+let assets_store_path_str = assets.download("/path/to/themes").await?;
+```
+
+The above theme is a valid VSCode theme file, so we need to convert it to `.tmTheme` file before we can use it.
+
+First, we need a converter called `theme-converter`
+
+```shell
+cargo add theme-converter
+```
+
+Then we can use the converter to convert the theme to `.tmTheme` file:
+
+```rust
+let root = vscode::VSCodeThemeParser::from_config(&assets_store_path_str)
+    .unwrap()
+    .parse(&assets_url.name);
+```
+
+The `root` is a `Theme` struct, which contains the theme name, and the theme content.
+
+Let's write it to a valid `.tmTheme` file:
+
+```bash
+cargo add plist
+```
+
+```rust
+plist::to_writer_xml(&mut fs::File::create(path).unwrap(), &root)?;
+```
+
+## Reference
+
+- [CLI url parser implementation](https://github.com/codesnap-rs/codesnap/blob/main/cli/src/main.rs#L289)
