@@ -20,7 +20,7 @@ const url = URL.createObjectURL(blob);
 document.getElementById("image")?.setAttribute("src", url);`;
 
 export const CodeEditor = () => {
-  const theme = useTheme();
+  const { resolvedTheme } = useTheme();
   const [code, setCode] = useState<string>("");
   const language = useMemo(
     () => hljs.highlightAuto(code).language ?? "typescript",
@@ -53,7 +53,7 @@ export const CodeEditor = () => {
         <div className="rounded-full w-3 h-3 bg-[#28C840]" />
       </div>
       <Editor
-        theme={theme.theme === "dark" ? "OneDark" : "OneLight"}
+        theme={resolvedTheme === "dark" ? "OneDark" : "OneLight"}
         width={550}
         height={300}
         defaultLanguage="typescript"
