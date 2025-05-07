@@ -1,8 +1,11 @@
 "use client";
 
+import { useVersion } from "@/hooks/useVersion";
 import { WithStyle } from "@/typings/utils";
 import { Chip } from "@heroui/react";
 
-export const VersionChip = ({ className }: WithStyle<{}>) => (
-  <Chip className={className}>Version: 0.12.1</Chip>
-);
+export const VersionChip = ({ className }: WithStyle<{}>) => {
+  const { version } = useVersion();
+
+  return <Chip className={className}>Version:{version}</Chip>;
+};
