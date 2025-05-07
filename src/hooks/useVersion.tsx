@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 
 const token = process.env.NEXT_PUBLIC_GITHUB_TOKEN;
+const repo_url = "https://api.github.com/repos/codesnap-rs/codesnap-docs";
 
 export const useVersion = () => {
   const _version =
@@ -12,7 +13,7 @@ export const useVersion = () => {
   const [version, setVersion] = useState(_version);
 
   useEffect(() => {
-    fetch("https://api.github.com/repos/fatedier/frp/releases/latest", {
+    fetch(repo_url, {
       method: "GET",
       headers: {
         Accept: "application/vnd.github+json",
@@ -26,6 +27,7 @@ export const useVersion = () => {
         return response.json();
       })
       .then((data) => {
+        console.log(data, "data");
         if (_version !== data.tag_name) {
           localStorage.setItem("codesnap_version", data.tag_name);
           setVersion(data.tag_name);
