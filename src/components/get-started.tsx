@@ -6,7 +6,7 @@ import { Button, Code } from "@heroui/react";
 export const GetStarted = ({ className }: WithStyle<{}>) => {
   return (
     <div className={`flex ${className}`}>
-      <Button className="mr-4 rounded-full" color="primary">
+      <Button className="sm:mr-4 rounded-full" color="primary">
         Get started
       </Button>
       <Code
