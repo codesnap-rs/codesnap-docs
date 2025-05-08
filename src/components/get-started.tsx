@@ -9,7 +9,10 @@ export const GetStarted = ({ className }: WithStyle<{}>) => {
       <Button className="mr-4 rounded-full" color="primary">
         Get started
       </Button>
-      <Code className="h-10 rounded-full flex items-center px-6" size="md">
+      <Code
+        className="h-10 rounded-full max-w-fit w-full overflow-x-auto overflow-y-hidden flex items-center px-6"
+        size="md"
+      >
         $ codesnap -f ./main.rs -o clipboard
       </Code>
     </div>

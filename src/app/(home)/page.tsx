@@ -15,7 +15,7 @@ export default async function HomePage() {
           <div className="xl:w-1/2 mt-8 xl:mt-0 xl:h-[calc(100vh-148px)] flex flex-col justify-center">
             <VersionChip className="mb-4" version={version} />
             <Heading />
-            <div className="flex text-start text-lg text-gray-500 mt-4">
+            <div className="flex text-left text-lg text-gray-500 mt-4">
               Code snapshot tool, provide CLI, Rust Library, Editor plugins and
               WebAssembly library, make it easy to use in any environment.
             </div>
