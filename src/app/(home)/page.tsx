@@ -19,7 +19,7 @@ export default async function HomePage() {
               Code snapshot tool, provide CLI, Rust Library, Editor plugins and
               WebAssembly library, make it easy to use in any environment.
             </div>
-            <GetStarted className="mt-8 flex sm:flex-row flex-col gap-6 sm:gap-0"></GetStarted>
+            <GetStarted className="mt-8 flex sm:flex-row flex-col sm:justify-start gap-6 sm:gap-0"></GetStarted>
           </div>
           <div className="flex mt-10 xl:mt-0 flex-col xl:w-[560px] max-w-[700px] justify-center">
             <CodeEditor />
