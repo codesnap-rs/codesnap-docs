@@ -56,12 +56,11 @@ export const CodeEditor = () => {
   };
 
   const handleCaptureButtonClick = async () => {
-    await init();
-
     withViewMaskToggle(async () => {
       // The generate process is synchronous, it may block main thread, thus the animation
       // may not execute correctly, so we need to delay the generation logic to wait the animation execute done.
       await sleep(300);
+      await init();
       const snapshot = take_snapshot(code, language);
       const imageSnapshot = snapshot.create_image_snapshot();
       const { data } = imageSnapshot.png_data();
