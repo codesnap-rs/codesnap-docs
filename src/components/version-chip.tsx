@@ -11,5 +11,7 @@ export const VersionChip = ({
   className,
   version,
 }: WithStyle<VersionChipProps>) => (
-  <Chip className={className}>{!version ? "Loading..." : version}</Chip>
+  <Chip className={`p-4 ${className}`}>
+    {!version ? "Loading..." : version}
+  </Chip>
 );

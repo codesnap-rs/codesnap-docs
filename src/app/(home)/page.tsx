@@ -1,8 +1,11 @@
 import { CodeEditor } from "@/components/editor";
 import { GetStarted } from "@/components/get-started";
 import { Heading } from "@/components/heading";
+import { StarBadge } from "@/components/star-badge";
 import { VersionChip } from "@/components/version-chip";
 import { fetchVersion } from "@/utils/version";
+
+const GITHUB_REPOSITORY_URL = "https://github.com/codesnap-rs/codesnap";
 
 export default async function HomePage() {
   const version = await fetchVersion();
@@ -13,7 +16,12 @@ export default async function HomePage() {
       <main className="flex p-5 md:p-8 lg:p-10 2xl:p-0 flex-1 text-center justify-center z-10">
         <div className="flex xl:justify-between flex-col xl:flex-row w-full max-w-fd-container">
           <div className="xl:w-1/2 mt-8 xl:mt-0 xl:h-[calc(100vh-148px)] flex flex-col justify-center">
-            <VersionChip className="mb-4" version={version} />
+            <div className="flex items-center mb-4">
+              <StarBadge url={GITHUB_REPOSITORY_URL} className="mr-2">
+                Star us on GitHub
+              </StarBadge>
+              <VersionChip version={version} />
+            </div>
             <Heading />
             <div className="flex text-left text-lg text-gray-500 mt-4">
               Code snapshot tool, provide CLI, Rust Library, Editor plugins and

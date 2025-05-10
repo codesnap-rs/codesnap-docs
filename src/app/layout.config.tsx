@@ -8,6 +8,7 @@ import type { BaseLayoutProps } from "fumadocs-ui/layouts/shared";
  * Docs Layout: app/docs/layout.tsx
  */
 export const baseOptions: BaseLayoutProps = {
+  themeSwitch: { enabled: false },
   githubUrl: "https://github.com/codesnap-rs/codesnap",
   nav: {
     title: (

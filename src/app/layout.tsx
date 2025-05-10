@@ -13,7 +13,15 @@ export default function Layout({ children }: { children: ReactNode }) {
     <html lang="en" className={inter.className} suppressHydrationWarning>
       <body className="flex flex-col min-h-screen">
         <UIProviders>
-          <RootProvider>{children}</RootProvider>
+          <RootProvider
+            theme={{
+              themes: ["dark"],
+              enableSystem: false,
+              defaultTheme: "dark",
+            }}
+          >
+            {children}
+          </RootProvider>
         </UIProviders>
       </body>
     </html>
