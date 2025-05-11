@@ -126,7 +126,6 @@ export const CodeEditor = () => {
 
           <div
             className={`justify-center items-center flex transition-all duration-300 ease-in-out bg-[#FAFAFA]/30 rounded-lg dark:bg-[#1E1E1E]/30 backdrop-blur-sm w-full h-full top-0 left-0 absolute ${isViewMask ? "opacity-100 z-10" : "opacity-0 z-[-1]"}`}
-            backdrop-blur-sm
           >
             <div className="p-1 animate-spin drop-shadow-2xl bg-gradient-to-bl from-pink-400 via-purple-400 to-indigo-600 w-10 h-10 aspect-square rounded-full">
               <div className="rounded-full h-full w-full bg-slate-100 dark:bg-zinc-900 opacity-75 backdrop-blur-sm"></div>
