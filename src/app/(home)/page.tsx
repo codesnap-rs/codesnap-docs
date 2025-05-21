@@ -4,6 +4,7 @@ import { Heading } from "@/components/heading";
 import { StarBadge } from "@/components/star-badge";
 import { VersionChip } from "@/components/version-chip";
 import { fetchVersion } from "@/utils/version";
+import Link from "fumadocs-core/link";
 
 const GITHUB_REPOSITORY_URL = "https://github.com/codesnap-rs/codesnap";
 
@@ -27,7 +28,9 @@ export default async function HomePage() {
               Code snapshot tool, provide CLI, Rust Library, Editor plugins and
               WebAssembly library, make it easy to use in any environment.
             </div>
-            <GetStarted className="mt-8 flex sm:flex-row flex-col sm:justify-start gap-6 sm:gap-0"></GetStarted>
+            <Link href="/docs/library">
+              <GetStarted className="mt-8 flex sm:flex-row flex-col sm:justify-start gap-6 sm:gap-0"></GetStarted>
+            </Link>
           </div>
           <div className="flex mt-10 xl:mt-0 flex-col xl:w-[560px] max-w-[700px] justify-center">
             <CodeEditor />
