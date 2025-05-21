@@ -1,82 +1,47 @@
 ---
 title: Code Input
-description: Learn how to use the code input feature in your application
+description: CodeSnap CLI code input type
 ---
 
 # Code Input
 
-Learn how to use the code input feature in your application.
+CodeSnap input type can be the following types:
 
-## Basic Usage
+- `file` - A file path to a code file
+- `stdin` - A code input from stdin
+- `string` - input code as a string
+- `clipboard` - input code from clipboard
 
-```jsx
-import { CodeInput } from '@your-package-name'
+## Language
 
-function App() {
-  return (
-    <CodeInput
-      language="javascript"
-      value={code}
-      onChange={setCode}
-    />
-  )
-}
+CodeSnap can auto detect what programming language is used based on code content, but it's not always accurate, we recommend to specify the language explicitly or you can capture a file directly.
+
+## File input
+
+Generate a code snapshot from a file is the most common use case. You can specify the file path using `--from-code` or `-f` flag.
+
+```bash
+codesnap -f <file_path> -o clipboard
 ```
 
-## Features
+![file input](./file-input.png)
 
-- Syntax highlighting
-- Auto-completion
-- Error detection
-- Line numbers
-- Code folding
+## From code
 
-## Configuration Options
+You can also provide a code snippet directly using `--from-code` or `-c` flag. This is useful for quick code snippets or when you don't want to create a file.
 
-```js
-const config = {
-  language: 'javascript',
-  theme: 'vs-dark',
-  fontSize: 14,
-  tabSize: 2,
-  minimap: {
-    enabled: true
-  }
-}
+```bash
+codesnap -c "print('Hello, World!')" -l "py" -o clipboard
 ```
 
-## Supported Languages
+![from code](./code-input.png)
 
-- JavaScript/TypeScript
-- Python
-- Java
-- C/C++
-- HTML/CSS
-- And many more...
+## From stdin
 
-## Advanced Features
+If you want to provide a code snippet form stdin, you can also use `--from-code` or `-c` flag.
 
-### Custom Language Support
-
-```js
-import { registerLanguage } from '@your-package-name'
-
-registerLanguage('custom', {
-  keywords: ['if', 'else', 'for'],
-  operators: ['+', '-', '*', '/'],
-  // ... more configuration
-})
+```bash
+cat ./next-env.d.ts | codesnap -c -l ts -o content/docs/cli/stdin-input.png
 ```
 
-### Custom Themes
-
-```js
-const customTheme = {
-  name: 'my-theme',
-  colors: {
-    background: '#1E1E1E',
-    foreground: '#D4D4D4',
-    // ... more colors
-  }
-}
-``` 
+![stdin input](./stdin-input.png)

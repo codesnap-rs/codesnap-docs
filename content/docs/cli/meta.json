@@ -6,12 +6,6 @@
   "pages": [
     "---Introduction---",
     "index",
-    "architecture",
-    "---Configuration---",
-    "overview",
-    "theme",
-    "fonts",
-    "background",
     "---Features---",
     "code-input",
     "code-output",
@@ -21,9 +15,6 @@
     "breadcrumbs",
     "line-numbers",
     "range",
-    "ascii",
-    "---Examples---",
-    "configuration",
-    "code-example"
+    "ascii"
   ]
 }
