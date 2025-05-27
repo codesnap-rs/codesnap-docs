@@ -1,95 +1,26 @@
 ---
 title: Command Output
-description: Learn how to use the command output feature in your application
+description: Learn how to generate snapshots of command outputs using CodeSnap CLI
 ---
 
-# Command Output
+Generate snapshots of command outputs is a powerful feature of CodeSnap CLI. It allows you to capture the output of any command and create a visually appealing snapshot.
 
-Learn how to use the command output feature in your application.
+## Basic usage
 
-## Basic Usage
+You can simply put your command to the `execute` option, and codesnap will execute it and capture the output.
 
-```jsx
-import { CommandOutput } from '@your-package-name'
-
-function App() {
-  return (
-    <CommandOutput
-      command="npm install"
-      output={output}
-      status="success"
-    />
-  )
-}
+```bash
+codesnap --execute "codesnap -V" -o clipboard
 ```
 
-## Features
+![Command Output](./command-output.png)
 
-- Command execution status
-- Real-time output streaming
-- Error handling
-- Command history
-- Output formatting
+## Don't run the command
 
-## Configuration Options
+If you want to capture the command output without executing it, you can use the `--skip` option. This is useful when you want to capture the command itself, not its output.
 
-```js
-const config = {
-  showCommand: true,
-  showTimestamp: true,
-  autoScroll: true,
-  maxHistory: 100,
-  theme: 'terminal'
-}
+```bash
+codesnap --execute "codesnap -V" --skip -o clipboard
 ```
 
-## Output Types
-
-1. **Success Output**
-   ```bash
-   $ npm install
-   added 1234 packages in 5.2s
-   ```
-
-2. **Error Output**
-   ```bash
-   $ npm install
-   npm ERR! code E404
-   npm ERR! 404 Not Found
-   ```
-
-3. **Progress Output**
-   ```bash
-   $ npm install
-   [==========] 100% | ETA: 0s | 1234/1234
-   ```
-
-## Advanced Features
-
-### Custom Command Handlers
-
-```js
-import { registerCommandHandler } from '@your-package-name'
-
-registerCommandHandler('custom', {
-  execute: async (command) => {
-    // Custom command execution logic
-    return result
-  }
-})
-```
-
-### Output Themes
-
-```js
-const terminalTheme = {
-  name: 'custom-terminal',
-  colors: {
-    background: '#1E1E1E',
-    text: '#FFFFFF',
-    success: '#4CAF50',
-    error: '#F44336',
-    command: '#2196F3'
-  }
-}
-``` 
+![Command Output Skip](./command-output2.png)

@@ -1,0 +1,42 @@
+---
+title: Output
+description: CodeSnap CLI output type
+---
+
+CodeSnap CLI can generate multiple output types, including:
+
+- `file` - Save the snapshot to a file
+  - PNG
+  - SVG
+  - HTML
+- `clipboard` - Copy the snapshot to clipboard
+
+## Copy to Clipboard
+
+It's really easy to copy the snapshot to clipboard. You can use the `--output` or `-o` flag to specify the output type.
+
+```bash
+codesnap -f <file_path> -o clipboard
+```
+
+## Save to File
+
+You can also save the snapshot to a file. You can specify the output file path using the `--output` or `-o` flag.
+
+**PNG**
+
+```bash
+codesnap -f <file_path> -o content/docs/cli/output.png
+```
+
+**SVG**
+
+```bash
+codesnap -f <file_path> -o content/docs/cli/output.svg
+```
+
+**HTML**
+
+```bash
+codesnap -f <file_path> -o content/docs/cli/output.html
+```

@@ -45,3 +45,13 @@ cat ./next-env.d.ts | codesnap -c -l ts -o content/docs/cli/stdin-input.png
 ```
 
 ![stdin input](./stdin-input.png)
+
+## From clipboard
+
+It's also possible to take a code input from clipboard. This is useful when you want to take a screenshot of a code snippet from your editor.
+
+```bash
+codesnap --from-clipboard -o clipboard
+```
+
+![clipboard input](./clipboard.png)
