@@ -9,12 +9,6 @@
     "---Features---",
     "code-input",
     "output",
-    "command-output",
-    "pipe",
-    "highlight",
-    "breadcrumbs",
-    "line-numbers",
-    "range",
-    "ascii"
+    "command-output"
   ]
 }

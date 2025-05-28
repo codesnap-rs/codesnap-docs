@@ -40,3 +40,17 @@ codesnap -f <file_path> -o content/docs/cli/output.svg
 ```bash
 codesnap -f <file_path> -o content/docs/cli/output.html
 ```
+
+## ASCII art
+
+You can also generate an ASCII art snapshot of your code, just set the `--type` to `ascii`:
+
+```bash
+codesnap -f <file_path> --type ascii -o clipboard
+```
+
+```ts
+╭────────────────────────────────────────────────────╮
+│ 1 import type { MDXComponents } from 'mdx/types';  │
+╰────────────────────────────────────────────────────╯
+```
