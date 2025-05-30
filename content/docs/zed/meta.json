@@ -1,0 +1,9 @@
+{
+    "title": "Zed integration",
+    "description": "Docs for CodeSnap Rust library",
+    "icon": "zed",
+    "root": true,
+    "pages": [
+        "index"
+    ]
+}
