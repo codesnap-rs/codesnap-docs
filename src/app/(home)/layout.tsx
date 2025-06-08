@@ -12,6 +12,10 @@ export default function Layout({ children }: { children: ReactNode }) {
           url: "/docs/library",
           active: "nested-url",
         },
+        {
+          text: "Playground",
+          url: "/playground",
+        },
       ]}
     >
       {children}
